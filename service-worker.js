@@ -1,8 +1,7 @@
 self.addEventListener('install', function(event) {
     event.waitUntil(
-      caches.open('tic-tac-toe-cache').then(function(cache) {
+      caches.open('Catch-cache').then(function(cache) {
         return cache.addAll([
-          '/',
           'index.html',
           'Catch.js'
         ]);

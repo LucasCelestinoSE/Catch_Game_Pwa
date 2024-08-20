@@ -1,6 +1,6 @@
 {
-    "name": "Tic Tac Toe Wasm",
-    "short_name": "Tic Tac Toe",
+    "name": "Catch Game Wasm",
+    "short_name": "Catch",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",

@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title> Catch Game</title>
-    <link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <title>Catch Game - Landing Page</title>
     <style>
+        /* Estilo para o corpo da página */
         body {
             display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
-            height: 100vh; /* Faz o corpo ocupar a altura total da tela */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            font-family: 'Arial', sans-serif;
         }
-        #canvas {
-            border: 10px solid black;
-        
-            /* Removido display: flex e justify-content: center, pois não são necessários para o elemento canvas em si */
+
+        /* Estilo para o título */
+        h1 {
+            color: #333;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para a descrição */
+        p {
+            color: #555;
+            font-size: 18px;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo para o botão */
+        .btn {
+            background-color: #28a745; /* Verde */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838; /* Verde escuro ao passar o mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
 
-        <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-        <script type='text/javascript'>
-            var Module = {
-                canvas: (function() { return document.getElementById('canvas'); })()
-            };
-        </script>
-        <script src="Catch.js"></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function () {
-                    navigator.serviceWorker.register('web-worker.js').then(function (registration) {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, function (error) {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
-                });
-            }
-        </script>
-    
+    <!-- Título do jogo -->
+    <h1>Catch Game</h1>
+
+    <!-- Descrição do jogo -->
+    <p>Bem-vindo ao Catch Game! Teste seus reflexos e habilidades neste jogo emocionante onde você deve pegar objetos que caem do céu. Clique no botão abaixo para iniciar a diversão.</p>
+
+    <!-- Botão para iniciar o jogo -->
+    <a href="catch-game.html" class="btn">Start Game</a>
+
 </body>
 </html>

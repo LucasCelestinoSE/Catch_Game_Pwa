@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Catch Game</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+
+        #game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #canvas {
+            border: 5px solid #333;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        h1 {
+            position: absolute;
+            top: 10px;
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CATCH! Não deixe o quadrado vermelho cair ! </h1>
+    
+    <div id="game-container">
+        <canvas id="canvas" oncontextmenu="event.preventDefault()" width="800" height="600"></canvas>
+    </div>
+
+    <script type='text/javascript'>
+        var Module = {
+            canvas: (function() { return document.getElementById('canvas'); })()
+        };
+    </script>
+    <script src="Catch.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('web-worker.js').then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (error) {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+    </script>
+    
+</body>
+</html>

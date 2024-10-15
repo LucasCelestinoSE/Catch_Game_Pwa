@@ -43,11 +43,33 @@
             font-size: 24px;
             font-weight: 700;
         }
+
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-selector select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>CATCH! Não deixe o quadrado vermelho cair ! </h1>
+    <!-- Seletor de idioma -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeGameLanguage()">
+            <option value="en" selected>English</option>
+            <option value="pt">Português</option>
+        </select>
+    </div>
+
+    <!-- Título do jogo -->
+    <h1 id="gameTitle">Catch! Don’t let the red square fall!</h1>
     
     <div id="game-container">
         <canvas id="canvas" oncontextmenu="event.preventDefault()" width="800" height="600"></canvas>
@@ -57,6 +79,16 @@
         var Module = {
             canvas: (function() { return document.getElementById('canvas'); })()
         };
+
+        function changeGameLanguage() {
+            var language = document.getElementById("languageSelect").value;
+
+            if (language === "en") {
+                document.getElementById("gameTitle").innerText = "Catch! Don’t let the red square fall!";
+            } else if (language === "pt") {
+                document.getElementById("gameTitle").innerText = "Catch! Não deixe o quadrado vermelho cair!";
+            }
+        }
     </script>
     <script src="Catch.js"></script>
     <script>

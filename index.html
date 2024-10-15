@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Catch Game - Landing Page</title>
     <style>
-        /* Estilo para o corpo da página */
         body {
             display: flex;
             flex-direction: column;
@@ -16,14 +15,12 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Estilo para o título */
         h1 {
             color: #333;
             font-size: 48px;
             margin-bottom: 20px;
         }
 
-        /* Estilo para a descrição */
         p {
             color: #555;
             font-size: 18px;
@@ -32,9 +29,8 @@
             margin-bottom: 40px;
         }
 
-        /* Estilo para o botão */
         .btn {
-            background-color: #28a745; /* Verde */
+            background-color: #28a745;
             color: white;
             border: none;
             border-radius: 50px;
@@ -47,21 +43,58 @@
         }
 
         .btn:hover {
-            background-color: #218838; /* Verde escuro ao passar o mouse */
+            background-color: #218838;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-selector select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Título do jogo -->
-    <h1>Catch Game</h1>
+    <!-- Seletor de idioma -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en" selected>English</option>
+            <option value="pt">Português</option>
+        </select>
+    </div>
 
-    <!-- Descrição do jogo -->
-    <p>Bem-vindo ao Catch Game! Teste seus reflexos e habilidades neste jogo emocionante onde você deve pegar objetos que caem do céu. Clique no botão abaixo para iniciar a diversão.</p>
+    <!-- Título e descrição que serão dinâmicos -->
+    <h1 id="title">Catch Game</h1>
+    <p id="description">Welcome to Catch Game! Test your reflexes and skills in this exciting game where you must catch falling objects. Click the button below to start the fun.</p>
 
     <!-- Botão para iniciar o jogo -->
-    <a href="catch-game.html" class="btn">Start Game</a>
+    <a href="catch-game.html" class="btn" id="startButton">Start Game</a>
+
+    <script>
+        function changeLanguage() {
+            var language = document.getElementById("languageSelect").value;
+
+            if (language === "en") {
+                // Conteúdo em inglês
+                document.getElementById("title").innerText = "Catch Game";
+                document.getElementById("description").innerText = "Welcome to Catch Game! Test your reflexes and skills in this exciting game where you must catch falling objects. Click the button below to start the fun.";
+                document.getElementById("startButton").innerText = "Start Game";
+            } else if (language === "pt") {
+                // Conteúdo em português
+                document.getElementById("title").innerText = "Jogo Catch";
+                document.getElementById("description").innerText = "Bem-vindo ao Jogo Catch! Teste seus reflexos e habilidades neste jogo emocionante onde você deve pegar objetos que caem do céu. Clique no botão abaixo para iniciar a diversão.";
+                document.getElementById("startButton").innerText = "Iniciar Jogo";
+            }
+        }
+    </script>
 
 </body>
 </html>
